@@ -8,6 +8,8 @@ class GameSprite(sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = player_x
         self.rect.y = player_y
+    def reset(self):
+        win.blit(self.image, (self.rect.x, self.rect.y))
 
 class Player(GameSprite):
     def update_r(self):
@@ -31,7 +33,7 @@ win = transform.scale(image.load('fon.png'), (win_width, win_height))
 
 game = True
 finish = False
-time = time.Clock()
+clock = time.Clock()
 fps = 60
 
 racket1 = Player('racket.png', 30, 200, 4, 50, 150)
